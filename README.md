@@ -1,6 +1,19 @@
-# RentalCars
+# Rental Cars
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
+You can access the deployed app [here.](https://github.com/angular/angular-cli)
+
+## Used technologies
+
+- Angular
+- RxJS
+- Pug (for shorter template syntax)
+- Sass (mainly for its nesting capability)
+
+## Notes
+
+- App should look consistent across all modern browsers (Chrome, Firefox, Edge) as well as in IE11. I couldn't test it in Safari but presumably fine.
+- App is desktop-first but fully responsible (though for a project of this size it's not that spectacular).
+-
 
 ## Development server
 

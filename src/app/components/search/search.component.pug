@@ -1,0 +1,11 @@
+label.label(for="search") Pick-up Location
+.input-wrapper
+  input(type="text", placeholder="{{ placeholder }}", id="search", autocomplete="off", (input)="onInput()", [(ngModel)]="inputValue")
+  rc-spinner(*ngIf="fetchingData")
+.results(*ngIf="inputValue.length > 1 && data?.results.docs")
+  ng-template(*ngIf="data?.results.numFound; then content else empty")
+  ng-template(#content)
+    rc-result(*ngFor="let doc of data.results.docs", [doc]="doc")
+  ng-template(#empty)
+    .empty
+      em {{ data?.results.docs[0].name }}
