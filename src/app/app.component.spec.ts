@@ -1,35 +1,29 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { TestBed, async } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
-describe('AppComponent', () => {
+import { AppComponent } from "./app.component";
+import { SearchComponent } from "./components/search/search.component";
+import { SpinnerComponent } from "./components/search/spinner/spinner.component";
+import { ResultComponent } from "./components/search/result/result.component";
+
+import { DataService } from "./services/data.service";
+
+import { MarkerPipe } from "./pipes/marker.pipe";
+
+describe("AppComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [RouterTestingModule, HttpClientModule, FormsModule],
+      declarations: [AppComponent, SearchComponent, SpinnerComponent, ResultComponent, MarkerPipe],
+      providers: [DataService]
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
+  it("should create the app", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'rental-cars'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('rental-cars');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to rental-cars!');
   });
 });

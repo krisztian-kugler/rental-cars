@@ -7,7 +7,7 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   public toBeMarked: string; // Input for the marker pipe
-  private baseURL: string = "https://www.rentalcars.com";
+  public baseURL: string = "https://www.rentalcars.com";
 
   public getResults(quantity: number, query: string): Observable<Object> {
     const url: string = `${this.baseURL}/FTSAutocomplete.do?solrIndex=fts_en&solrRows=${quantity}&solrTerm=${query}`;

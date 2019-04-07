@@ -1,6 +1,6 @@
-label.label(for="search") Pick-up Location
+label.label(for="search", id="search-label") Pick-up Location
 .input-wrapper
-  input(type="text", placeholder="{{ placeholder }}", id="search", autocomplete="off", (input)="onInput()", [(ngModel)]="inputValue")
+  input(type="text", placeholder="{{ placeholder }}", id="search", aria-labelledby="search-label", autocomplete="off", (input)="onInput()", [(ngModel)]="inputValue")
   rc-spinner(*ngIf="fetchingData")
 .results(*ngIf="inputValue.length > 1 && data?.results.docs")
   ng-template(*ngIf="data?.results.numFound; then content else empty")

@@ -1,6 +1,6 @@
 # Rental Cars
 
-You can access the deployed app [here.](https://github.com/angular/angular-cli)
+You can access the deployed app [here.](https://krisztian-kugler.github.io/rental-cars)
 
 ## Used technologies
 
@@ -11,9 +11,16 @@ You can access the deployed app [here.](https://github.com/angular/angular-cli)
 
 ## Notes
 
-- App should look consistent across all modern browsers (Chrome, Firefox, Edge) as well as in IE11. I couldn't test it in Safari but presumably fine.
-- App is desktop-first but fully responsible (though for a project of this size it's not that spectacular).
--
+- App should look consistent across all modern browsers (Chrome, Firefox, Edge, IE11).
+- App is desktop-first but it's responsible (though for such a small project it's not that spectacular).
+- I wrote a few unit and integration tests to check if the input field works as intended.
+- Extra feature: a load spinner is displayed when data is being fetched from the API.
+- Extra feature: search string gets highlighted in results.
+- Extra feature: all search queries and related results are cached to prevent unnecessary calls to the API.
+
+## About displaying the results
+
+It looked a bit weird to display raw response data in the dropdown list, so I decided to give it a little formatting. However without an API documentation, I wasn't entirely sure what type of data I get back from the backend, so I made several requests to see if I can figure it out. Based on that, I assume all response items have a 'name' property and at least one of the following: 'city', 'country', 'region'. I set up my data structure accordingly and displayed these in the dropdown.
 
 ## Development server
 

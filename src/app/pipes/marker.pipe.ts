@@ -10,11 +10,10 @@ export class MarkerPipe implements PipeTransform {
 
   transform(value: string): SafeHtml {
     if (!this.dataService.toBeMarked) return value;
-    return this.domSanitizer.bypassSecurityTrustHtml(this.mark(value));
+    return this.domSanitizer.bypassSecurityTrustHtml(this.mark(value, this.dataService.toBeMarked));
   }
 
-  mark(value: string): string {
-    const query: string = this.dataService.toBeMarked;
+  mark(value: string, query: string): string {
     const regExp = new RegExp(`(${query})`, "ig");
     const marked: string = `<strong style="color: black">$1</strong>`;
     return value.replace(regExp, marked);
