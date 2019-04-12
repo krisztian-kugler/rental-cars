@@ -5,6 +5,7 @@ You can access the deployed app [here.](https://krisztian-kugler.github.io/renta
 ## Used technologies
 
 - Angular
+- TypeScript
 - RxJS
 - Pug (for shorter template syntax)
 - Sass (mainly for its nesting capability)
@@ -17,6 +18,7 @@ You can access the deployed app [here.](https://krisztian-kugler.github.io/renta
 - Extra feature: a load spinner is displayed when data is being fetched from the API.
 - Extra feature: search string gets highlighted in results.
 - Extra feature: all search queries and related results are cached to prevent unnecessary calls to the API.
+- Extra feature: debouncer on the input field that adds a 500ms delay after the last keystroke before the API gets called. This further reduces unnecessary calls if the user starts typing quickly.
 
 ## About displaying the results
 

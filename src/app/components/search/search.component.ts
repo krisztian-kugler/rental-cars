@@ -16,6 +16,7 @@ export class SearchComponent {
   public inputValue: string = "";
   private quantity: number = 6;
   private cache = {};
+  private debouncer;
 
   private processData(data: ResponseData, inputValue?: string): void {
     this.data = data;
@@ -26,16 +27,19 @@ export class SearchComponent {
   }
 
   public onInput(): void {
+    clearTimeout(this.debouncer);
     if (this.inputValue.length > 1) {
       if (this.cache[this.inputValue]) {
         this.processData(this.cache[this.inputValue]);
         return;
       }
-      this.fetchingData = true;
-      this.dataService.getResults(this.quantity, this.inputValue).subscribe((response: ResponseData) => {
-        this.processData(response, this.inputValue);
-        this.fetchingData = false;
-      });
+      this.debouncer = setTimeout(() => {
+        this.fetchingData = true;
+        this.dataService.getResults(this.quantity, this.inputValue).subscribe((response: ResponseData) => {
+          this.processData(response, this.inputValue);
+          this.fetchingData = false;
+        });
+      }, 500);
     } else {
       this.data = null;
     }
